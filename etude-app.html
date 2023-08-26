@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>etude</title>
+    <link rel="stylesheet" href="etude-app.css">
+</head>
+<body>
+    <!-- ------------------------------- nav bar ------------------------------- -->
+    <div class="container-nav-bar vertical-flex-center">
+        <img class="logo" src="assets/etude-logo-dark.png" alt="etude-logo">
+        <ul class="list-nav-bar vertical-flex-center">
+            <!-- <li class="hr-dark"><hr></li> -->
+            <li class="click-nav-bar-titles" id="scales">scales</li>
+            <li class="hr-dark"><hr></li>
+            <li class="click-nav-bar-titles coming-soon" id="intervals">intervals</li>
+            <li class="hr-dark"><hr></li>
+            <li class="click-nav-bar-titles coming-soon" id="chords">chords</li>
+            <!-- <li class="hr-dark"><hr></li> -->
+        </ul>
+        <button type="button" class="button nav-button" id="button-sound-change"><img src="./assets/icon-metronome-l.png"
+            class="img-dark-mode" id="img-metronome-icon" alt="metronome-sound-icon"></button>
+        <button type="button" class="button nav-button" id="button-dark-mode"><img src="./assets/light-mode-icon.png"
+            class="img-dark-mode" id="img-theme-swap" alt="dark-mode-icon"></button>
+    </div>
+    <!-- ----------------------- main content container ------------------------ -->
+    <div class="container-main-content vertical-flex-center">
+        <!-- ------------------------- parameters section -------------------------- -->
+        <div class="container-parameters flex-center">
+             <div class="container-select container-select-tonal-center vertical-flex-center"> 
+                <label class="label-select" for="select-tonal-center">tonal center</label>
+                <select id="select-tonal-center" autocomplete="off">
+                    <option class="click-select option-tonal-center" id="select-c" value="c">C</option>
+                    <option class="click-select option-tonal-center" id="select-c#" value="c#">C#/Db</option>
+                    <option class="click-select option-tonal-center" id="select-d" value="d">D</option>
+                    <option class="click-select option-tonal-center" id="select-d#" value="d#">D#/Eb</option>
+                    <option class="click-select option-tonal-center" id="select-e" value="e">E</option>
+                    <option class="click-select option-tonal-center" id="select-f" value="f">F</option>
+                    <option class="click-select option-tonal-center" id="select-f#" value="f#">F#/Gb</option>
+                    <option class="click-select option-tonal-center" id="select-g" value="g">G</option>
+                    <option class="click-select option-tonal-center" id="select-g#" value="g#">G#/Ab</option>
+                    <option class="click-select option-tonal-center" id="select-a" value="a">A</option>
+                    <option class="click-select option-tonal-center" id="select-a#" value="a#">A#/Bb</option>
+                    <option class="click-select option-tonal-center" id="select-b" value="b">B</option>
+                </select>
+            </div>
+            <div class="container-select container-select-mode vertical-flex-center">
+                <label class="label-select" for="select-mode">mode</label>
+                <select id="select-mode" autocomplete="off">
+                    <option class="click-select option-mode" id="select-ionian" value="ionian">ionian</option>
+                    <!-- <option class="click-select option-mode" id="select-dorian" value="dorian">dorian</option> -->
+                    <!-- <option class="click-select option-mode" id="select-phrygian" value="phrygian">phrygian</option> -->
+                    <option class="click-select option-mode" id="select-lydian" value="lydian">lydian</option>
+                    <!-- <option class="click-select option-mode" id="select-mixolydian" value="mixolydian">mixolydian</option> -->
+                    <option class="click-select option-mode" id="select-aeolian" value="aeolian">aeolian</option>
+                    <!-- <option class="click-select option-mode" id="select-locrian" value="locrian">locrian</option> -->
+                </select>
+            </div> 
+            <div class="container-clef vertical-flex-center">
+                <label class="container-checkbox" id="checkbox-treble-clef">
+                    <input type="checkbox" class="checkbox" checked autocomplete="off">
+                    <span class="text-checkbox">treble clef</span>
+                </label>
+                <label class="container-checkbox" id="checkbox-bass-clef">
+                    <input type="checkbox" class="checkbox" checked autocomplete="off">
+                    <span class="text-checkbox">bass clef</span> 
+                </label>
+            </div>
+            <button type="button" class="button" id="button-random">?</button>
+        </div>
+        <!-- ---------------------------- music content ---------------------------- -->
+        <div class="container-music vertical-flex-center">
+            <h1 class="text-scale-title">C ionian (major)</h1>
+            <img src="assets/dark-c-ionian-treble-1.png" alt="music scales img" class="music-content music-content-treble">
+            <img src="assets/dark-c-ionian-bass-1.png" alt="music scales img" class="music-content music-content-bass">
+        </div>
+        <!-- -------------------------- metronome section -------------------------- -->
+        <div class="container-metronome flex-center">
+            <div class="container-metronome-range flex-center">
+                <button type="button" class="button-tempo" id="button-tempo-minus">-</button>
+                <input type="range" min="40" max="200" class="range-slider range-metronome-bpm" step="1" 
+                id="range-metronome-bpm" oninput="bpmText(this)" autocomplete="off">
+                <button type="button" class="button-tempo" id="button-tempo-plus">+</button>
+            </div>
+            <span class="text-metronome-bpm">120 bpm</span>
+            <button type="button" class="button button-metronome" id="button-metronome">
+                <span class="text-button-metronome" id="text-button-metronome">off</span></button>
+        </div>
+    </div>
+    <!-- ------------------------------- scripts ------------------------------- -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="etude-metronome.js"></script>
+    <script src="etude-app.js"></script>
+</body>
+</html>
